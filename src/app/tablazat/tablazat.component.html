@@ -26,18 +26,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                  <tr *ngFor="let allat of allatok">
+                    <th scope="row">{{ allat.nev}}</th>
+                    <td scope="row">{{ allat.eletkor}}</td>
+                    <td scope="row">{{ allat.fajta}}</td>
+                    <td scope="row">{{ allat.szin}}</td>
+                    <td scope="row">{{ allat.nem}}</td>
+                    <td scope="row">{{ allat.oltas}}</td>
+                    <td scope="row">{{ allat.chipszam}}</td>
+                    <td scope="row">{{ allat.bekerlesideje}}</td>
+                    <td scope="row">{{ allat.kutyamacska}}</td>
+                    <td scope="row">{{ allat.id}}</td>
+                    <td scope="row"></td>
                   </tr>
                 </tbody>
               </table>
