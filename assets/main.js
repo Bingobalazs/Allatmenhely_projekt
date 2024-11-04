@@ -1,4 +1,4 @@
-//Ez egy js kód, egy jobb világ számára. Remélem eyszer olvassa valaki
+//Ez egy js kód, egy jobb világ számára. Remélem egyszer olvassa valaki
 
 
 function Oltas(o)
