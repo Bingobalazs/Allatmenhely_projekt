@@ -3,9 +3,13 @@
 ## Tulajdonságok
 
 eletkor: int
+
 nem: CSAK h / n (hím/nőstény)
+
 chipszam: 16 pontosan
+
 bekerules ideje: éééé-hh-nn
+
 kutyamacska: CSAK k/m (kutya / macska)
 
 ## API-k
