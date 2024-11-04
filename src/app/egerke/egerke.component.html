@@ -24,7 +24,10 @@ label {
     padding: 10px;
     cursor: pointer;
 }
-
+.row {
+    margin-bottom: 10px;
+    width: 100%;
+}
 
 </style>
 <html lang="hu">
@@ -33,15 +36,16 @@ label {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szopja tokle</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
     <div class="container">
-        <div class="row">Név<input type="text"></div>
-        <div class="row">Életkor<input type="number"></div>
-        <div class="row">Fajta<input type="text"></div>
-        <div class="row">Szín<input type="text"></div>
-        <div class="row">Hím<input type="radio" name="name" value="m">Nőstény<input type="radio" name="name" value="f"></div>
+        <div class="row"><input placeholder="Név" type="text" class="w-100"></div>
+        <div class="row"><input placeholder="Életkor" type="number" class="w-100"></div>
+        <div class="row"><input placeholder="Fajta" type="text" class="w-100"></div>
+        <div class="row"><input placeholder="Szín" type="text" class="w-100"></div>
+        <div class="row">Hím <input type="radio" name="name" value="m" style="margin-right: 10px;">Nőstény <input type="radio" name="name" value="f"></div>
         
         <!--<div class="row">Oltás
             <select id="oltas" onchange="Oltas()">
@@ -61,9 +65,9 @@ label {
         </div>
 
         <div class="row" id="box"></div>
-        <div class="Chipszám">Szín<input type="text"></div>
-        <div class="Bererülés ideje">Szín<input type="date"></div>
-        <div class="row">Kutya<input type="radio" name="faj" value="k">Macska<input type="radio" name="faj" value="m"></div>
+        <div class="row"><input placeholder="Chipszám" type="text"></div>
+        <div class="row">Berepülés ideje: <input type="date"></div>
+        <div class="row">Kutya<input type="radio" name="faj" value="k" style="margin-right: 10px;">Macska<input type="radio" name="faj" value="m"></div>
     </div>
 </body>
 </html>
