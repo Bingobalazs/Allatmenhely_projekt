@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-tablazat',
@@ -11,10 +14,12 @@ import { Component } from '@angular/core';
 export class TablazatComponent {
  allatok: any[]=[]; // Tárolja az API-tól kapott adatokat
  
- export class DataService {
+ //port class DataService {
   private apiUrl = 'https://balgalazs.moriczcloud.hu/allat/mind'; // Az API URL-je
 
- constructor(private dataService: TablazatComponent) { }
+  constructor(private http: HttpClient) { }
+
+  constructor(private dataService: TablazatComponent) { }
 
  ngOnInit(): void {
    // Az API adatainak lekérése a komponens inicializálásakor
