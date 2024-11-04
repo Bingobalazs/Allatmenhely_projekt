@@ -13,13 +13,18 @@ import { DataService } from '../data.service';
 })
 export class TablazatComponent {
  allatok: any[]=[]; // Tárolja az API-tól kapott adatokat
+
+ fetch('https://balgalazs.moriczcloud.hu/allat/mind')
+      .then(response => response.json())
+      .then(json => console.log(json))
  
  //port class DataService {
-  private apiUrl = 'https://balgalazs.moriczcloud.hu/allat/mind'; // Az API URL-je
+  //private apiUrl = 'https://balgalazs.moriczcloud.hu/allat/mind'; // Az API URL-je
 
-  constructor(private http: HttpClient) { }
+  
 
-  constructor(private dataService: TablazatComponent) { }
+  //constructor(private dataService: TablazatComponent) { }
+  
 
  ngOnInit(): void {
    // Az API adatainak lekérése a komponens inicializálásakor
