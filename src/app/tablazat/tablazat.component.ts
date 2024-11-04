@@ -1,19 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {RouterLink} from '@angular/router';
-import {CommonModule, NgForOf} from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http';
-
-
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-tablazat',
   standalone: true,
   imports: [
     RouterLink,
-    NgForOf,
-    HttpClientModule,
-    CommonModule,
+    NgForOf
   ],
   templateUrl: './tablazat.component.html',
   styleUrl: './tablazat.component.css'
@@ -21,19 +15,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 export class TablazatComponent implements OnInit{
   allatok:any=[];
-  constructor(private http: HttpClient) {}
-
-  ngOnInit(): void {
-    this.http.get('https://balgalazs.moriczcloud.hu/allat/mind')
-      .subscribe({
-        next: (tartalom: any) => {
-          console.log(tartalom);
-          this.allatok = tartalom;
-        },
-        error: (error) => {
-          console.error('Hiba történt:', error);
-        }
-      });
+  ngOnInit():void {
+    fetch("https://balgalazs.moriczcloud.hu/allat/mind")
+      .then((res) => res.json())
+      .then((tartalom) => {
+        this.allatok=tartalom;
+      })
   }
   deleteAnimal(id: number) {
     fetch(`https://balgalazs.moriczcloud.hu/allat/${id}`, {

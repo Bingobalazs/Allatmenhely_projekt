@@ -28,16 +28,31 @@ export class EgerkeComponent {
     kutyamacska: ''
   };
 
-  /*constructor(private http: HttpClient) {}
+  allatok:any=[];
+  ngOnInit():void {
+    fetch("https://balgalazs.moriczcloud.hu/allat/mind")
+      .then((res) => res.json())
+      .then((tartalom) => {
+        this.allatok=tartalom;
+      })
+  }
+  deleteAnimal(id: number) {
+    fetch(`https://balgalazs.moriczcloud.hu/allat/${id}`, {
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (response.ok) {
+          // Sikeres törlés után frissítjük a listát
+          this.ngOnInit();
+          console.log('Állat sikeresen törölve!');
+        } else {
+          console.error('Hiba történt a törlés során!');
+        }
+      })
+      .catch(error => {
+        console.error('Hiba történt:', error);
+      });
 
-  submitForm() {
-    const selectedOltas = Object.keys(this.formData.oltas).filter(key => this.formData.oltas[key]);
-    const apiUrl = `https://balgalazs.moriczcloud.hu/allat/modosit/${this.formData.nev}/${this.formData.eletkor}/${this.formData.fajta}/${this.formData.szin}/${this.formData.nem}/${selectedOltas.join(',')}/${this.formData.chipszam}/${this.formData.bekerulesideje}/${this.formData.kutyamacska}`;
+  }
 
-    this.http.post(apiUrl, {}).subscribe(response => {
-      console.log('API válasz:', response);
-    }, error => {
-      console.error('Hiba történt az API hívás során:', error);
-    });
-  }*/
 }
