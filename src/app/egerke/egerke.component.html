@@ -15,18 +15,17 @@
         <div class="row">Szín<input type="text"></div>
         <div class="row">Hím<input type="radio" name="name" value="m">Nőstény<input type="radio" name="name" value="f"></div>
         <div class="row">Oltás
-            <select name="" id="">
-                <option value="">oltas1</option>
-                <option value="">oltas2</option>
-                <option value="">oltas3</option>
+            <select id="oltas">
+                <option value="o1" onclick="Oltas('o1')">oltas1</option>
+                <option value="o2" onclick="Oltas('o2')">oltas2</option>
+                <option value="o3" onclick="Oltas('o3')">oltas3</option>
             </select>
         </div>
+        <div class="row" id="box"></div>
         <div class="Chipszám">Szín<input type="text"></div>
         <div class="Bererülés ideje">Szín<input type="date"></div>
         <div class="row">Kutya<input type="radio" name="faj" value="k">Macska<input type="radio" name="faj" value="m"></div>
     </div>
 </body>
 </html>
-<script>
-    
-</script>
+<script src="../../main.js"></script>
