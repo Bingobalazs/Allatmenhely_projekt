@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {RouterLink} from '@angular/router';
-import {NgForOf} from '@angular/common';
+import {CommonModule, NgForOf} from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @Component({
@@ -9,7 +11,9 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [
     RouterLink,
-    NgForOf
+    NgForOf,
+    HttpClientModule,
+    CommonModule,
   ],
   templateUrl: './tablazat.component.html',
   styleUrl: './tablazat.component.css'

@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import {EgerkeComponent} from './egerke/egerke.component';
 import {TablazatComponent} from './tablazat/tablazat.component';
 
+
+
 declare function getSex(): void;
 
 @Component({
