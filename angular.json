@@ -30,7 +30,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "assets/main.js"
+              "assets/oltaskezelo.js"
             ]
           },
           "configurations": {
@@ -90,7 +90,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "assets/main.js"
+              "assets/oltaskezelo.js"
             ]
 
           }

@@ -1,13 +1,13 @@
 //Ez egy js kód, egy jobb világ számára. Remélem eyszer olvassa valaki
 
-
+var oltasok = {
+  oltas1: 0,
+  oltas2: 0,
+  oltas3: 0,
+}
 function Oltas(o)
 {
-    oltasok = {
-        oltas1: 0,
-        oltas2: 0,
-        oltas3: 0,
-    }
+
     var oltas = document.getElementById('oltas');
     var box = document.getElementById('box');
     box.innerHTML = "";
