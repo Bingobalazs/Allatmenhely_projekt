@@ -1,31 +1,73 @@
 <!--Az egerke komponens a főoldal. Azért ez a neve, mert nem engedtetek gondolkodni rajta.-->
 <!DOCTYPE html>
+<style>
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+label {
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+.row {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+</style>
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szopja tokle</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
     <div class="container">
-        <div class="row">Név<input type="text"></div>
-        <div class="row">Életkor<input type="number"></div>
-        <div class="row">Fajta<input type="text"></div>
-        <div class="row">Szín<input type="text"></div>
-        <div class="row">Hím<input type="radio" name="name" value="m">Nőstény<input type="radio" name="name" value="f"></div>
-        <div class="row">Oltás
-            <select id="oltas">
-                <option value="o1" onclick="Oltas('o1')">oltas1</option>
-                <option value="o2" onclick="Oltas('o2')">oltas2</option>
-                <option value="o3" onclick="Oltas('o3')">oltas3</option>
+        <div class="row"><input placeholder="Név" type="text" class="w-100"></div>
+        <div class="row"><input placeholder="Életkor" type="number" class="w-100"></div>
+        <div class="row"><input placeholder="Fajta" type="text" class="w-100"></div>
+        <div class="row"><input placeholder="Szín" type="text" class="w-100"></div>
+        <div class="row">Hím <input type="radio" name="name" value="m" style="margin-right: 10px;">Nőstény <input type="radio" name="name" value="f"></div>
+        
+        <!--<div class="row">Oltás
+            <select id="oltas" onchange="Oltas()">
+                <option value="o1">oltas1</option>
+                <option value="o2">oltas2</option>
+                <option value="o3">oltas3</option>
             </select>
+        </div>-->
+        
+        <div class="dropdown">
+            <button class="">Oltások</button>
+            <div class="dropdown-content">
+                <label><input type="checkbox">AIDS</label>
+                <label><input type="checkbox">Skorbut</label>
+                <label><input type="checkbox">Szex</label>
+            </div>
         </div>
+
         <div class="row" id="box"></div>
-        <div class="Chipszám">Szín<input type="text"></div>
-        <div class="Bererülés ideje">Szín<input type="date"></div>
-        <div class="row">Kutya<input type="radio" name="faj" value="k">Macska<input type="radio" name="faj" value="m"></div>
+        <div class="row"><input placeholder="Chipszám" type="text"></div>
+        <div class="row">Berepülés ideje: <input type="date"></div>
+        <div class="row">Kutya<input type="radio" name="faj" value="k" style="margin-right: 10px;">Macska<input type="radio" name="faj" value="m"></div>
     </div>
 </body>
 </html>
