@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-tablazat',
   standalone: true,
-  imports: [ApiModule],
+  imports: [],
   templateUrl: './tablazat.component.html',
   styleUrl: './tablazat.component.css'
 })
 export class TablazatComponent {
+
+<<<<<<< Updated upstream
  allatok: any[]=[]; // Tárolja az API-tól kapott adatokat
 
  fetch('https://balgalazs.moriczcloud.hu/allat/mind')
@@ -41,5 +39,7 @@ export class TablazatComponent {
   getAllatok(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+=======
+>>>>>>> Stashed changes
 
 }
