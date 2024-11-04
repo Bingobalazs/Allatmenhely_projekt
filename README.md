@@ -18,7 +18,7 @@ kutyamacska: CSAK k/m (kutya / macska)
 #### Minta:
   balgalazs.moriczcloud.hu/allat/beir/{nev}/{eletkor}/{fajta}/{szin}/{nem}/{oltas}/{chipszam}/{bekerulesideje}/{kutyamacska}
 #### demo:
-  https://balgalazs.moriczcloud.hu/allat/beir/3/Fido/3/Labrador/blue/h/veszett/1234567890123456/2024-01-01/k
+  https://balgalazs.moriczcloud.hu/allat/beir/Fido/3/Labrador/blue/h/veszett/1234567890123456/2024-01-01/k
 
 ### Módosítás PUT
 #### Minta:
