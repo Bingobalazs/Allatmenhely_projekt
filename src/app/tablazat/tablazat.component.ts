@@ -12,6 +12,7 @@ import {NgForOf} from '@angular/common';
   templateUrl: './tablazat.component.html',
   styleUrl: './tablazat.component.css'
 })
+
 export class TablazatComponent implements OnInit{
   allatok:any=[];
   ngOnInit():void {
@@ -37,6 +38,7 @@ export class TablazatComponent implements OnInit{
       .catch(error => {
         console.error('Hiba történt:', error);
       });
+
   }
 
 }
