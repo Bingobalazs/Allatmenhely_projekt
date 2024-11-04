@@ -1,13 +1,19 @@
-import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+<<<<<<< Updated upstream
 import { FormsModule } from '@angular/forms';
 import {CommonModule} from '@angular/common';
 
+=======
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-egerke',
   standalone: true,
+<<<<<<< Updated upstream
   imports: [CommonModule, FormsModule],
+=======
+  imports: [],
+>>>>>>> Stashed changes
   templateUrl: './egerke.component.html',
   styleUrl: './egerke.component.css'
 })
@@ -27,6 +33,7 @@ export class EgerkeComponent {
     bekerulesideje: '',
     kutyamacska: ''
   };
+<<<<<<< Updated upstream
 
   allatok:any=[];
   ngOnInit():void {
@@ -55,4 +62,6 @@ export class EgerkeComponent {
 
   }
 
+=======
+>>>>>>> Stashed changes
 }
