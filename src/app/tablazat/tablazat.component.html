@@ -25,26 +25,29 @@
                     <th scope="col">Macska</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
-                    <th scope="col">ID</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let allat of allatok">
-                    <th scope="row">{{ allat.nev}}</th>
-                    <td scope="row">{{ allat.eletkor}}</td>
+                    <td><span *ngIf="!allat.editMode">{{ allat.nev }}</span><input *ngIf="allat.editMode" [value]="allat.nev" (input)="updateField(allat, 'nev', $event)" /></td>
+                    <td><span *ngIf="!allat.editMode">{{ allat.eletkor }}</span><input *ngIf="allat.editMode" [value]="allat.eletkor" (input)="updateField(allat, 'eletkor', $event)" /></td>
+                    <td><span *ngIf="!allat.editMode">{{ allat.fajta }}</span><input *ngIf="allat.editMode" [value]="allat.fajta" (input)="updateField(allat, 'fajta', $event)" /></td>
+                    <td><span *ngIf="!allat.editMode">{{ allat.szin }}</span><input *ngIf="allat.editMode" [value]="allat.szin" (input)="updateField(allat, 'szin', $event)" /></td>
+                    <td><span *ngIf="!allat.editMode">{{ allat.nem }}</span><input *ngIf="allat.editMode" [value]="allat.nem" (input)="updateField(allat, 'nem', $event)" /></td>
+                    <td><span *ngIf="!allat.editMode">{{ allat.oltas }}</span><input *ngIf="allat.editMode" [value]="allat.oltas" (input)="updateField(allat, 'oltas', $event)" /></td>
+                    <td><span *ngIf="!allat.editMode">{{ allat.chipszam }}</span><input *ngIf="allat.editMode" [value]="allat.chipszam" (input)="updateField(allat, 'chipszam', $event)" /></td>
+                    <td><span *ngIf="!allat.editMode">{{ allat.bekerulesideje }}</span><input *ngIf="allat.editMode" [value]="allat.bekerulesideje" (input)="updateField(allat, 'bekerulesideje', $event)" /></td>
 
-                    <td scope="row">{{ allat.fajta}}</td>
-                    <td scope="row">{{ allat.szin}}</td>
-                    <td scope="row">{{ allat.nem}}</td>
-                    <td scope="row">{{ allat.oltas}}</td>
-                    <td scope="row">{{ allat.chipszam}}</td>
-                    <td scope="row">{{ allat.bekerlesideje}}</td>
                     <!--Itt az x helyén a karakter jelöli kutya vagy macska-->
                     <td scope="row" *ngIf="allat.kutyamacska == 'k'; else masik">x</td><ng-template #masik><td scope="row"></td></ng-template>
                     <td scope="row" *ngIf="allat.kutyamacska == 'm'; else masik2">x</td><ng-template #masik2><td scope="row"></td></ng-template>
-                    <td scope="row"><button class="btn btn-secondary">Módosítás</button></td>
+                    <td *ngIf="!allat.editMode" scope="row"><button class="btn btn-secondary" (click)="toggleEditMode(allat)">Módosítás</button></td>
+                    <td *ngIf="allat.editMode" scope="row"><button class="btn btn-secondary" (click)="toggleEditMode(allat)" (click)="saveChanges(allat)">Mentés</button></td>
                     <td scope="row"><button class="btn btn-danger" (click)="deleteAnimal(allat.id)">Törlés</button></td>
-                    <td scope="row">{{ allat.id}}</td>
+
+
+                    
+                    
                   </tr>
                 </tbody>
               </table>

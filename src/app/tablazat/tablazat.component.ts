@@ -46,4 +46,28 @@ export class TablazatComponent implements OnInit{
 
   }
 
+  Edit() : void
+  {
+
+  }
+
+  toggleEditMode(item: any) {
+    item.editMode = !item.editMode;
+  }
+  
+  //Ez kell neked
+  saveChanges(allat: any) {
+
+    //Itt lehet hozzáférni a módosított értékekhez, pl. allat.nev
+
+    //
+          console.log('Módosított adat:', allat.nev);
+  }
+  updateValue(item: any, event: Event) {
+    item.nev = (event.target as HTMLInputElement).value;
+  }
+  updateField(item: any, field: string, event: Event) {
+    item[field] = (event.target as HTMLInputElement).value;
+  }
+
 }
