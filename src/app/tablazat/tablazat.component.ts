@@ -37,21 +37,12 @@ export class TablazatComponent implements OnInit{
       });
   }
   deleteAnimal(id: number) : void {
-    fetch(`https://balgalazs.moriczcloud.hu/allat/${id}`, {
-      method: 'DELETE'
-    })
-      .then(response => {
-        if (response.ok) {
-          // Sikeres törlés után frissítjük a listát
-          this.ngOnInit();
-          console.log('Állat sikeresen törölve!');
-        } else {
-          console.error('Hiba történt a törlés során!');
-        }
-      })
-      .catch(error => {
-        console.error('Hiba történt:', error);
-      });
+    this.http.get(`https://balgalazs.moriczcloud.hu/allat/delete/${id}`, {}).subscribe((response:any) => {
+
+
+      alert('API response:'+ response.message);
+      console.log('API response:', response.message);
+    });
 
   }
 
