@@ -54,11 +54,16 @@ export class TablazatComponent implements OnInit{
   toggleEditMode(item: any) {
     item.editMode = !item.editMode;
   }
-  
+
   //Ez kell neked
   saveChanges(allat: any) {
 
-    //Itt lehet hozzáférni a módosított értékekhez, pl. allat.nev
+    this.http.get(`https://balgalazs.moriczcloud.hu/allat/modosit/${allat.id}/${allat.nev}/${allat.eletkor}/${allat.fajta}/${allat.szin}/${allat.nem}/${allat.oltas}/${allat.chipszam}/${allat.bekerulesideje}/${allat.kutyamacska}`, {}).subscribe((response:any) => {
+
+
+      alert('API response:'+ response.message);
+      console.log('API response:', response.message);
+    });
 
     //
           console.log('Módosított adat:', allat.nev);
