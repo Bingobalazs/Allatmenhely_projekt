@@ -39,7 +39,7 @@
                     <!--Itt az x helyén a karakter jelöli kutya vagy macska-->
                     <td scope="row" *ngIf="allat.kutyamacska == 'k'; else masik">x</td><ng-template #masik><td scope="row"></td></ng-template>
                     <td scope="row" *ngIf="allat.kutyamacska == 'm'; else masik2">x</td><ng-template #masik2><td scope="row"></td></ng-template>
-                    <td scope="row"><button>Módosítás</button></td>
+                    <td scope="row"><button class="btn btn-secondary">Módosítás</button></td>
                     <td scope="row"><button class="btn btn-danger" (click)="deleteAnimal(allat.id)">Törlés</button></td>
                   </tr>
                 </tbody>

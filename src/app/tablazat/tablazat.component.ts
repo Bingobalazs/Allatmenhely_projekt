@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+
 @Component({
   selector: 'app-tablazat',
   standalone: true,
@@ -53,6 +54,5 @@ export class TablazatComponent implements OnInit{
       });
 
   }
-
 
 }
