@@ -1,52 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import {CommonModule} from '@angular/common';
-
-
-
+import { HttpClientModule } from '@angular/common/http';
+import {log} from '@angular-devkit/build-angular/src/builders/ssr-dev-server';
 
 @Component({
-  selector: 'app-egerke',
   standalone: true,
-
-  imports: [CommonModule, FormsModule],
-
-  
-
   templateUrl: './egerke.component.html',
-  styleUrl: './egerke.component.css'
+  styleUrl: './egerke.component.css',
+  selector: 'app-egerke',
+
+
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
 })
 export class EgerkeComponent {
-  formData = {
-    nev: '',
-    eletkor: null,
-    fajta: '',
-    szin: '',
-    nem: '',
-    oltas: {
-      AIDS: false,
-      Skorbut: false,
-      Szex: false
-    },
-    chipszam: '',
-    bekerulesideje: '',
-    kutyamacska: ''
-  };
+  animalForm: FormGroup;
+  selectedOltasok: string = '';
 
-
-  /*constructor(private http: HttpClient) {}
-
-  submitForm() {
-    const selectedOltas = Object.keys(this.formData.oltas).filter(key => this.formData.oltas[key]);
-    const apiUrl = `https://balgalazs.moriczcloud.hu/allat/modosit/${this.formData.nev}/${this.formData.eletkor}/${this.formData.fajta}/${this.formData.szin}/${this.formData.nem}/${selectedOltas.join(',')}/${this.formData.chipszam}/${this.formData.bekerulesideje}/${this.formData.kutyamacska}`;
-
-
-    this.http.post(apiUrl, {}).subscribe(response => {
-      console.log('API válasz:', response);
-    }, error => {
-      console.error('Hiba történt az API hívás során:', error);
+  constructor(private fb: FormBuilder, private http: HttpClient) {
+    this.animalForm = this.fb.group({
+      nev: [''],
+      eletkor: [''],
+      fajta: [''],
+      szin: [''],
+      nem: [''],
+      oltas1: [''],
+      oltas2: [''],
+      oltas3: [''],
+      chipszam: [''],
+      bekerulesideje: [''],
+      kutyamacska: ['']
     });
-  }*/
 
+
+
+  }
+
+
+  onSubmit() {
+    const formData = this.animalForm.value;
+
+  console.log(this.selectedOltasok)
+    if (formData.oltas1=="" && formData.oltas2=="" && formData.oltas3=="") this.selectedOltasok="Nincs"
+    if(formData.oltas1!="") this.selectedOltasok+="Aids"
+    if(formData.oltas1!="") this.selectedOltasok+="Skorbut"
+    if(formData.oltas1!="") this.selectedOltasok+="Szex"
+    // API endpoint összeállítása az űrlap adataival
+    const apiUrl = `https://balgalazs.moriczcloud.hu/allat/beir/${formData.nev}/${formData.eletkor}/${formData.fajta}/${formData.szin}/${formData.nem}/${this.selectedOltasok}/${formData.chipszam}/${formData.bekerulesideje}/${formData.kutyamacska}`;
+
+    // API hívás
+    this.http.get(apiUrl, {}).subscribe((response:any) => {
+
+
+      alert('API response:'+ response.message);
+      console.log('API response:', response.message);
+    });
+  }
 }

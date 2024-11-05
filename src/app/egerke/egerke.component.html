@@ -40,35 +40,51 @@ label {
 
 </head>
 <body>
+<form [formGroup]="animalForm" (ngSubmit)="onSubmit()">
     <div class="container">
-        <div class="row"><input placeholder="Név" type="text" class="w-100"></div>
-        <div class="row"><input placeholder="Életkor" type="number" class="w-100"></div>
-        <div class="row"><input placeholder="Fajta" type="text" class="w-100"></div>
-        <div class="row"><input placeholder="Szín" type="text" class="w-100"></div>
-        <div class="row">Hím <input type="radio" name="name" value="m" style="margin-right: 10px;">Nőstény <input type="radio" name="name" value="f"></div>
-        
-        <!--<div class="row">Oltás
-            <select id="oltas" onchange="Oltas()">
-                <option value="o1">oltas1</option>
-                <option value="o2">oltas2</option>
-                <option value="o3">oltas3</option>
-            </select>
-        </div>-->
-        
+        <div class="row"><input required formControlName="nev"  placeholder="Név" type="text" class="w-100"></div>
+        <div class="row"><input required formControlName="eletkor" placeholder="Életkor" type="number" class="w-100"></div>
+        <div class="row"><input required formControlName="fajta" placeholder="Fajta" type="text" class="w-100"></div>
+        <div class="row"><input required formControlName="szin" placeholder="Szín" type="text" class="w-100"></div>
+        <div class="row">
+          <label for="him">Hím</label>
+          <input id="him" checked type="radio" formControlName="nem" value="h" style="margin-right: 10px;" name="nem">
+          <label for="nosteny">Nőstény</label>
+          <input  id="nosteny" type="radio" formControlName="nem" value="n" name="nem"></div>
+
+
+
         <div class="dropdown">
-            <button class="btn btn-secondary">Oltások</button>
+            <button class="btn btn-secondary" type="button">Oltások</button>
             <div class="dropdown-content">
-                <label><input type="checkbox">AIDS</label>
-                <label><input type="checkbox">Skorbut</label>
-                <label><input type="checkbox">Szex</label>
+                <label><input onchange="" type="checkbox" id="oltas1" formControlName="oltas1">AIDS</label>
+                <label><input onchange="" type="checkbox" id="oltas2" formControlName="oltas2">Skorbut</label>
+                <label><input onchange="" type="checkbox" id="oltas3" formControlName="oltas3">Szex</label>
             </div>
         </div>
 
         <div class="row" id="box"></div>
-        <div class="row"><input placeholder="Chipszám" type="text"></div>
-        <div class="row">Berepülés ideje: <input type="date"></div>
-        <div class="row">Kutya<input type="radio" name="faj" value="k" style="margin-right: 10px;">Macska<input type="radio" name="faj" value="m"></div>
-        <button type="submit" class="btn btn-secondary">Submit</button>
+        <div class="row"><input placeholder="Chipszám" type="text" formControlName="chipszam"  maxlength="16" required></div>
+        <div class="row">Bekerülés ideje: <input required type="date" formControlName="bekerulesideje"></div>
+        <div class="row">
+          <label for="kutya">Kutya</label>
+          <input id="kutya" type="radio" name="kutyamacska" value="k" formControlName="kutyamacska" style="margin-right: 10px;">
+          <label for="macska">Nőstény</label>
+          <input id="macska" type="radio" name="kutyamacska" value="m" formControlName="kutyamacska">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+    </form>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
