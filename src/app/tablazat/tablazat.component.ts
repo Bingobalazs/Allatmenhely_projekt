@@ -35,7 +35,7 @@ export class TablazatComponent implements OnInit{
         }
       });
   }
-  deleteAnimal(id: number) {
+  deleteAnimal(id: number) : void {
     fetch(`https://balgalazs.moriczcloud.hu/allat/${id}`, {
       method: 'DELETE'
     })
