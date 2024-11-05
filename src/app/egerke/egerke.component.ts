@@ -42,13 +42,15 @@ export class EgerkeComponent {
     const formData = this.animalForm.value;
 
   console.log(this.selectedOltasok)
-    if (formData.oltas1=="" && formData.oltas2=="" && formData.oltas3=="") this.selectedOltasok="Nincs"
-    if(formData.oltas1!="") this.selectedOltasok+="Aids"
-    if(formData.oltas1!="") this.selectedOltasok+="Skorbut"
-    if(formData.oltas1!="") this.selectedOltasok+="Szex"
+    if (formData.oltas1=="" && formData.oltas2=="" && formData.oltas3=="") this.selectedOltasok="Nincs,"
+    if(formData.oltas1!="") this.selectedOltasok+="Aids,"
+    if(formData.oltas2!="") this.selectedOltasok+="Skorbut,"
+    if(formData.oltas3!="") this.selectedOltasok+="Szex,"
+
+    this.selectedOltasok = this.selectedOltasok.substring(0, this.selectedOltasok.length - 1);
     // API endpoint összeállítása az űrlap adataival
     const apiUrl = `https://balgalazs.moriczcloud.hu/allat/beir/${formData.nev}/${formData.eletkor}/${formData.fajta}/${formData.szin}/${formData.nem}/${this.selectedOltasok}/${formData.chipszam}/${formData.bekerulesideje}/${formData.kutyamacska}`;
-
+    this.selectedOltasok = "";
     // API hívás
     this.http.get(apiUrl, {}).subscribe((response:any) => {
 
