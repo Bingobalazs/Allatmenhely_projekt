@@ -12,7 +12,6 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">id</th>
                     <th scope="col">Név</th>
                     <th scope="col">Életkor</th>
                     <th scope="col">Fajta</th>
@@ -23,6 +22,8 @@
                     <th scope="col">Bekerülés ideje</th>
                     <th scope="col">Kutya</th>
                     <th scope="col">Macska</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,9 +36,11 @@
                     <td scope="row">{{ allat.oltas}}</td>
                     <td scope="row">{{ allat.chipszam}}</td>
                     <td scope="row">{{ allat.bekerlesideje}}</td>
-                    <td scope="row">{{ allat.kutyamacska}}</td>
-                    <td scope="row">{{ allat.id}}</td>
-                    <td scope="row"></td>
+                    <!--Itt az x helyén a karakter jelöli kutya vagy macska-->
+                    <td scope="row" *ngIf="allat.kutyamacska == 'k'; else masik">x</td><ng-template #masik><td scope="row"></td></ng-template>
+                    <td scope="row" *ngIf="allat.kutyamacska == 'm'; else masik2">x</td><ng-template #masik2><td scope="row"></td></ng-template>
+                    <td scope="row"><button>Módosítás</button></td>
+                    <td scope="row"><button class="btn btn-danger" onclick="deleteAnimal(allat.id)">Törlés</button></td>
                   </tr>
                 </tbody>
               </table>
