@@ -1,60 +1,23 @@
 //Ez egy js kód, egy jobb világ számára. Remélem egyszer olvassa valaki
+// -Jobb világ számára meg a faszt. Írtál három ifet és programozónak hívod magad
 
-var oltasok = {
-    oltas1: 0,
-    oltas2: 0,
-    oltas3: 0,
-  }
 
-function Oltas(o)
+function Oltas()
 {
+    var o1 = document.getElementById('oltas1');
+    var o2 = document.getElementById('oltas2');
+    var o3 = document.getElementById('oltas3');
+    var oltashidden = document.getElementById('oltashidden');
+    var oltaslista ="";
+    oltashidden.value="";
 
-    
-    var oltas = document.getElementById('oltas').value;
-    console.log(oltas)
-    var box = document.getElementById('box');
-    box.innerHTML = "";
+    if (o1.checked) oltaslista+="Aids;";
 
-    if (oltas == "o1")
-    {
-        console.log(1)
-        if (oltasok.oltas1 == 0)
-        {
-            oltasok.oltas1 = 1;
-        }
-        else
-        {
-            oltasok.oltas1 = 0;
-        }
-    }
-    else if (oltas == "o2")
-    {
-        console.log(2)
+    if (o2.checked) oltaslista+="Skorbut;";
 
-        if (oltasok.oltas2 == 0)
-        {
-            oltasok.oltas2 = 1;
-        }
-        else
-        {
-            oltasok.oltas2 = 0;
-        }
-    }
-    else if (oltas == "o3")
-    {
-        console.log(3)
+    if (o3.checked) oltaslista+="Szex";
 
-        if (oltasok.oltas3 == 0)
-        {
-            oltasok.oltas3 = 1;
-        }
-        else
-        {
-            oltasok.oltas3 = 0;
-        }
-    }
+    if (oltaslista=="") oltaslista+="Nincs"
+  oltashidden.value=oltaslista;
 
-    if (oltasok.oltas1 = 1) {box.innerHTML += "oltas1"}
-    else if (oltasok.oltas2 = 1) {box.innerHTML += "oltas2"}
-    else if (oltasok.oltas3 = 1) {box.innerHTML += "oltas3"}
 }
